@@ -11,8 +11,9 @@ const app = express();
 
 app.use(helmet()); 
 app.use(cors({
-  origin: env.CORS_ORIGIN, 
-  credentials: true
+  origin: process.env.CORS_ORIGIN,
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
 }));
 
 app.use(express.json({ limit: "16kb" })); 
